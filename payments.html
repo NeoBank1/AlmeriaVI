@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apollo - Payments</title>
+<link rel="stylesheet" href="payment.css">
+</head>
+<body>
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="https://assets.codepen.io/285131/almeria-logo.svg" alt="Apollo Logo" class="logo"> 
+      <h1 class="logo-title">
+        <span>Almeria</span>
+        <span>NeoBank</span>
+      </h1>
+    </div>
+    <nav class="navigation">
+      <a href="index.html" class="nav-item">Dashboard</a>
+      <a href="index.html" class="nav-item">Transactions</a>
+      <a href="payments.html" class="nav-item active">Payments</a>
+      <a href="" class="nav-item">Cards</a>
+      <a href="credit.html" class="nav-item">Credit</a>
+      <a href="#" class="nav-item">Accounts</a>
+    </nav>
+    <div class="user-profile">
+      <img src="user-avatar.png" alt="User Profile" class="user-avatar">
+      <span class="user-name">Mara C.</span>
+    </div>
+  </aside>
+  <main class="main-content">
+    <header class="header">
+      <input type="search" placeholder="Search for anything..." class="search-input">
+      <button class="move-money-btn">Move Money</button>
+    </header>
+    <section class="payment-section">
+      <h1>Payments</h1>
+      <div class="payment-tabs">
+        <button class="tab">Outgoing</button>
+        <button class="tab">Incoming</button>
+        <button class="tab">Recipients</button>
+      </div>
+      <div class="payment-approval">
+        <h2>Needs approval</h2>
+        <p>No pending approvals</p>
+      </div>
+      <div class="scheduled-payments">
+        <h2>Scheduled</h2>
+        <div class="payment-item">
+          <span class="payment-title">Airbnb</span>
+          <span class="payment-amount">$387.56</span>
+          <!-- <button class="cancel-btn">Cancel</button>
+          <button class="pay-now-btn">Pay Now</button> -->
+        </div>
+        <!-- Repeat for each payment item -->
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

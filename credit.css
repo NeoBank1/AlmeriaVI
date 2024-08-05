@@ -1,0 +1,125 @@
+/* General styles */
+body, h1, p, a, button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  
+  /* Layout */
+  .dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: #121212;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    min-width: 250px;
+    background-color: #1C1C1E;
+    padding: 20px;
+  }
+  
+  .sidebar-logo img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-link {
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: #37373D;
+  }
+  
+  /* Main content */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .search-input {
+    padding: 10px;
+    width: 100%;
+    background-color: #2C2C2E;
+    border-radius: 4px;
+    color: #FFFFFF;
+    border: none;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    background-color: #673ab7;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .move-money {
+    background-color: #673ab7;
+  }
+  
+  /* Credit section */
+  .credit-section {
+    background-color: #2C2C2E;
+    padding: 20px;
+    border-radius: 6px;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .section-description {
+    margin-bottom: 20px;
+  }
+  
+  .credit-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 1px solid #FFFFFF;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+    }
+  
+    .main-header {
+      flex-direction: column;
+    }
+  
+    .search-input {
+      margin-bottom: 10px;
+    }
+  
+    .credit-actions {
+      flex-direction: column;
+    }
+  }
+  
