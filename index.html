@@ -59,39 +59,143 @@
         transition: background-color 0.3s ease;
     }
 
-    .login-form button:hover {
-        background-color: #6a6afe;
-    }
+	    .login-form button:hover {
+	        background-color: #6a6afe;
+	    }
 
-    @media (max-width: 600px) {
-        .login-container {
-            width: 90%;
+	    .modal {
+	        display: none;
+	        position: fixed;
+	        z-index: 10;
+	        inset: 0;
+	        background-color: rgba(0, 0, 0, 0.72);
+	        padding: 24px;
+	        box-sizing: border-box;
+	        align-items: center;
+	        justify-content: center;
+	    }
+
+	    .modal-content {
+	        position: relative;
+	        width: 100%;
+	        max-width: 380px;
+	        background: #242424;
+	        border: 1px solid #3f3f3f;
+	        border-radius: 12px;
+	        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+	        padding: 36px 28px 30px;
+	        text-align: center;
+	    }
+
+	    .modal-icon {
+	        width: 44px;
+	        height: 44px;
+	        border-radius: 50%;
+	        display: inline-flex;
+	        align-items: center;
+	        justify-content: center;
+	        margin-bottom: 18px;
+	        background: rgba(244, 67, 54, 0.14);
+	        color: #ff8a80;
+	        font-size: 24px;
+	        font-weight: 700;
+	    }
+
+	    .modal-content h3 {
+	        margin: 0 0 10px;
+	        font-size: 22px;
+	        line-height: 1.25;
+	    }
+
+	    .modal-content p {
+	        margin: 0;
+	        color: #cfcfcf;
+	        font-size: 16px;
+	        line-height: 1.5;
+	    }
+
+	    .modal-close {
+	        position: absolute;
+	        top: 14px;
+	        right: 16px;
+	        border: 0;
+	        background: transparent;
+	        padding: 4px;
+	        color: #aaa;
+	        font-size: 28px;
+	        font-weight: bold;
+	        line-height: 1;
+	        cursor: pointer;
+	    }
+
+	    .modal-close:hover,
+	    .modal-close:focus {
+	        color: white;
+	    }
+
+	    @media (max-width: 600px) {
+	        .login-container {
+	            width: 90%;
         }
     }
 </style>
 </head>
 <body>
 <div class="login-container login-form">
-    <input type="text" id="username" placeholder="Username">
-    <input type="text" id="password" placeholder="Password">
-    <button id="loginButton">Login</button>
-</div>
+	    <input type="text" id="username" placeholder="Username">
+	    <input type="text" id="password" placeholder="Password">
+	    <button id="loginButton">Login</button>
+	</div>
 
-<script>
-    // JavaScript to add the onclick event listener to the button
-    document.getElementById('loginButton').onclick = function() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+	<div id="loginErrorModal" class="modal">
+	    <div class="modal-content">
+	        <button class="modal-close" type="button" aria-label="Close">&times;</button>
+	        <span class="modal-icon">!</span>
+	        <h3>Login failed</h3>
+	        <p>Please check your username and password, then try again.</p>
+	    </div>
+	</div>
+
+	<script>
+	    var loginErrorModal = document.getElementById('loginErrorModal');
+	    var modalClose = document.getElementsByClassName('modal-close')[0];
+
+	    function openLoginErrorModal() {
+	        loginErrorModal.style.display = 'flex';
+	    }
+
+	    function closeLoginErrorModal() {
+	        loginErrorModal.style.display = 'none';
+	    }
+
+	    // JavaScript to add the onclick event listener to the button
+	    document.getElementById('loginButton').onclick = function() {
+	        var username = document.getElementById('username').value;
+	        var password = document.getElementById('password').value;
         
         // Placeholder condition to check username and password
         if(username === 'thaneriversvictor' && password === 'thanesv429') {
-            // If login is successful, redirect to another page
-            window.location.href = 'login.html'; // Replace 'welcome.html' with the URL or path to your success page
-        } else {
-            alert('Login failed!');
-        }
-    };
-</script>
+	            // If login is successful, redirect to another page
+	            window.location.href = 'login.html'; // Replace 'welcome.html' with the URL or path to your success page
+	        } else {
+	            openLoginErrorModal();
+	        }
+	    };
+
+	    modalClose.onclick = closeLoginErrorModal;
+
+	    window.onclick = function(event) {
+	        if (event.target == loginErrorModal) {
+	            closeLoginErrorModal();
+	        }
+	    };
+
+	    document.addEventListener('keydown', function(event) {
+	        if (event.key === 'Escape') {
+	            closeLoginErrorModal();
+	        }
+	    });
+	</script>
 </body>
           <!-- <section class="transfer-section">
             <div class="transfer-section-header">
