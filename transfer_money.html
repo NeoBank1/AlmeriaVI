@@ -69,6 +69,7 @@
   .transfer-method {
     background-color: #333;
     color: white;
+    width: 100%;
     padding: 20px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -77,6 +78,10 @@
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s;
+    border: 0;
+    font: inherit;
+    text-decoration: none;
+    box-sizing: border-box;
   }
 
   .transfer-method:hover {
@@ -96,51 +101,80 @@
   }
 
   .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none;
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.72);
+    padding: 24px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
   }
   
   .modal-content {
-    background-color: #333;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px; /* Could be more or less, depending on screen size */
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    background: #242424;
+    border: 1px solid #3f3f3f;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    padding: 36px 28px 30px;
+    text-align: center;
+  }
+
+  .modal-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    background: rgba(76, 175, 80, 0.14);
+    color: #7bd87f;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .modal-content h3 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .modal-content p {
+    margin: 0;
+    color: #cfcfcf;
+    font-size: 16px;
+    line-height: 1.5;
   }
   
-  .close {
+  .close,
+  .modal-close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
     font-weight: bold;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    border: 0;
+    background: transparent;
+    padding: 4px;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
   }
   
   .close:hover,
-  .close:focus {
+  .close:focus,
+  .modal-close:hover,
+  .modal-close:focus {
     color: white;
     cursor: pointer;
-  }
-  
-  /* Style the buttons */
-  button {
-    padding: 10px;
-    margin: 10px;
-    color: white;
-    background-color: #444;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button#paymentLink, button#wireTransfer {
-    background-color: green; /* Active option */
   }
   
 </style>
@@ -162,14 +196,14 @@
   <h2>Select a transfer method</h2>
 
   <div class="transfer-methods">
-    <div class="transfer-method">
-      <a style="color: white; text-decoration:none;" href="make_transfer.html"><span>Bank transfer</span></a>
-      <a style="color: white; text-decoration:none;" href="make_transfer.html"><span>&rarr;</span></a>
-    </div>
-    <div class="transfer-method">
-      <span id="paymentLink">Payment link</span>
-      <span id="paymentLink">&rarr;</span>
-    </div>
+    <a class="transfer-method" href="make_transfer.html">
+      <span>Bank transfer</span>
+      <span>&rarr;</span>
+    </a>
+    <button class="transfer-method" id="paymentLink" type="button">
+      <span>Payment link</span>
+      <span>&rarr;</span>
+    </button>
     <!-- <div class="transfer-method">
       <span>Wire</span>
       <span>&rarr;</span>
@@ -180,8 +214,10 @@
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
-    <a href="transfer_money.html"><span class="close">&times;</span></a>
-    <p>Service not currently available for your region.</p>
+    <button class="modal-close" type="button" aria-label="Close">&times;</button>
+    <span class="modal-icon">!</span>
+    <h3>Payment link unavailable</h3>
+    <p>Service is not currently available for your region.</p>
   </div>
 </div>
 </div>
@@ -192,22 +228,17 @@ var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btnPaymentLink = document.getElementById("paymentLink");
-var btnWireTransfer = document.getElementById("wireTransfer");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var modalClose = document.getElementsByClassName("modal-close")[0];
 
 // When the user clicks on the button, open the modal
 btnPaymentLink.onclick = function() {
-  modal.style.display = "block";
-}
-
-btnWireTransfer.onclick = function() {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+modalClose.onclick = function() {
   modal.style.display = "none";
 }
 
@@ -217,6 +248,12 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
 
 </script>
 

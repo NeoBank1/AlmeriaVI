@@ -102,7 +102,7 @@
         </div>
         <div class="app-header-actions">
           <button class="user-profile">
-            <span>Gregory Smith</span>
+            <span>Thane Rivers Victor</span>
             <span>
               <img src="WhatsApp Image 2024-01-12 at 12.56.12.jpeg" />
             </span>
@@ -152,41 +152,20 @@
         </div>
         <div class="app-body-main-content">
           <section class="service-section">
-            <h2>Welcome, Gregory</h2>
-            <div class="service-section-header">
-              <div class="search-field">
-                <i class="ph-magnifying-glass"></i>
-                <input type="text" placeholder="Account number">
-              </div>
-              <div class="dropdown-field">
-                <select>
-                  <option>Home</option>
-                  <option>Work</option>
-                </select>
-                <i class="ph-caret-down"></i>
-              </div>
-              <button class="flat-button">
-                Search
-              </button>
-            </div>
-            <div class="mobile-only">
-              <button class="flat-button">
-                Toggle search
-              </button>
-            </div>
+            <h2>Welcome, Thane</h2>
             <div class="tiles">
               <article class="tile">
                 <div class="tile-header">
                   <i class="ph-fire-simple-light"></i>
                   <h3>
                     <span>Transfer</span>
-                    <span>$
                   </h3>
                 </div>
-                <a href="#" id="openModal">
+                <a href="transfer_money.html">
                   <span>Go to service</span>
                   <span class="icon-button">
-                    <i class="ph-caret-right-bold"></i>
+                    <i class="ph-arrow-right"></i>
+                    <span class="icon-fallback" aria-hidden="true">&rarr;</span>
                   </span>
                 </a>
               </article>
@@ -195,7 +174,7 @@
                   <i class="ph-file-light"></i>
                   <h3>
                     <span>Available balance:</span>
-                    <span style="font-size: large;">$705000.00</span>
+                    <span id="dashboard-balance" style="font-size: large;">$708,000.00</span>
                   </h3>
                 </div>
               </article>
@@ -207,137 +186,87 @@
             <!-- Transaction History Section -->
             <section class="transaction-history">
               <h3>Transaction History</h3>
+              <div id="dynamic-transactions"></div>
               <div class="transaction">
-                <span class="date">Date: 2024-08-02</span>
-                <span class="description">Description:Wire Transfer To Anabel Perez Mijangos</span>
-                <span class="amount negative"><span style="color: white;">Amount:</span> -$36,000.00</span>
-                <span class="balance">Balance: $705,000.00</span>
-              </div>
-            
-              <div class="transaction">
-                <span class="date">Date: 2024-08-01</span>
+                <span class="date">Date: 2026-07-13</span>
                 <span class="description">Description: Deposit</span>
                 <span class="amount positive"><span style="color: white;">Amount:</span> +$10,000.00</span>
-                <span class="balance">Balance: $741,000.00</span>
+                <span class="balance">Balance: $708,000.00</span>
               </div>
-              
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-03</span>
-                <span class="description">Description: Payment Received</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$1,000.00</span>
-                <span class="balance">Balance: $731,000.00</span>
+                <span class="date">Date: 2026-06-10</span>
+                <span class="description">Description: Deposit</span>
+                <span class="amount positive"><span style="color: white;">Amount:</span> +$10,000.00</span>
+                <span class="balance">Balance: $698,000.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-04</span>
-                <span class="description">Description: Utility Bill Payment</span>
-                <span class="amount negative"><span style="color: white;">Amount:</span> -$3,800.00</span>
-                <span class="balance">Balance: $730,000.00</span>
+                <span class="date">Date: 2026-05-20</span>
+                <span class="description">Description: Wire Transfer In</span>
+                <span class="amount positive"><span style="color: white;">Amount:</span> +$139,000.00</span>
+                <span class="balance">Balance: $688,000.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-03</span>
-                <span class="description">Description: Transfer</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$1,000.00</span>
-                <span class="balance">Balance: $733,800.00</span>
+                <span class="date">Date: 2026-03-10</span>
+                <span class="description">Description: Interest Payment</span>
+                <span class="amount positive"><span style="color: white;">Amount:</span> +$2,400.00</span>
+                <span class="balance">Balance: $549,000.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-06</span>
-                <span class="description">Description: Online Purchase</span>
-                <span class="amount negative"><span style="color: white;">Amount:</span> -$1500.00</span>
-                <span class="balance">Balance: $732,800.00</span>
+                <span class="date">Date: 2026-01-15</span>
+                <span class="description">Description: T-Bill Purchase (52-week)</span>
+                <span class="amount negative"><span style="color: white;">Amount:</span> -$40,000.00</span>
+                <span class="balance">Balance: $546,600.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-09</span>
-                <span class="description">Description: To Johnathan Moore</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$500.00</span>
-                <span class="balance">Balance: $734,300.00</span>
+                <span class="date">Date: 2025-11-20</span>
+                <span class="description">Description: T-Bill Maturity (26-week)</span>
+                <span class="amount positive"><span style="color: white;">Amount:</span> +$51,000.00</span>
+                <span class="balance">Balance: $586,600.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-10</span>
-                <span class="description">Description: Transfer</span>
-                <span class="amount negative"><span style="color: white;">Amount:</span> -$2,000.00</span>
-                <span class="balance">Balance: $733,800.00</span>
+                <span class="date">Date: 2025-09-05</span>
+                <span class="description">Description: Wire Transfer Out</span>
+                <span class="amount negative"><span style="color: white;">Amount:</span> -$15,000.00</span>
+                <span class="balance">Balance: $535,600.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-11</span>
-                <span class="description">Description: Payment Received</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$500.00</span>
-                <span class="balance">Balance: $735,800.00</span>
+                <span class="date">Date: 2025-07-15</span>
+                <span class="description">Description: T-Bill Maturity (13-week)</span>
+                <span class="amount positive"><span style="color: white;">Amount:</span> +$30,600.00</span>
+                <span class="balance">Balance: $550,600.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-15</span>
-                <span class="description">Description: Transfer</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$1,500.00</span>
-                <span class="balance">Balance: $735,300.00</span>
+                <span class="date">Date: 2025-05-20</span>
+                <span class="description">Description: T-Bill Purchase (13-week)</span>
+                <span class="amount negative"><span style="color: white;">Amount:</span> -$30,000.00</span>
+                <span class="balance">Balance: $520,000.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-17</span>
-                <span class="description">Description: Bonus Received</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$2,000.00</span>
-                <span class="balance">Balance: $733,800.00</span>
+                <span class="date">Date: 2025-03-10</span>
+                <span class="description">Description: T-Bill Purchase (26-week)</span>
+                <span class="amount negative"><span style="color: white;">Amount:</span> -$50,000.00</span>
+                <span class="balance">Balance: $550,000.00</span>
               </div>
-            
+
               <div class="transaction">
-                <span class="date">Date: 2024-08-18</span>
-                <span class="description">Description: Charity Donation</span>
-                <span class="amount negative"><span style="color: white;">Amount:</span> -$500.00</span>
-                <span class="balance">Balance: $731,800.00</span>
-              </div>
-            
-              <div class="transaction">
-                <span class="date">Date: 2024-08-19</span>
-                <span class="description">Description: Payment Received</span>
-                <span class="amount positive"><span style="color: white;">Amount:</span> +$1,000.00</span>
-                <span class="balance">Balance: $732,300.00</span>
+                <span class="date">Date: 2025-01-15</span>
+                <span class="description">Description: Opening Deposit</span>
+                <span class="amount positive"><span style="color: white;">Amount:</span> +$600,000.00</span>
+                <span class="balance">Balance: $600,000.00</span>
               </div>
             </section>
             
 
           </section>
-
-          <!-- The Modal -->
-          <div id="paymentModal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <p style="color: black;">You need to make a payment of $800 to proceed with your transactions.</p>
-              <!-- <button id="makePayment">Make Payment</button> -->
-            </div>
-          </div>
-
-          <script>
-            // Get the modal
-            var modal = document.getElementById("paymentModal");
-
-            // Get the button that opens the modal
-            var btn = document.getElementById("openModal");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal 
-            btn.onclick = function() {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-          </script>
         </div>
       </div>
     </div>
